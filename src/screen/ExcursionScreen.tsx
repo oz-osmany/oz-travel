@@ -23,7 +23,7 @@ import { DatosExcursiones } from '../interfaces/reservadoInterface';
 const { width: windowWidth } = Dimensions.get('window');
 
 
-export const ProductScreen = ({navigation}) => {
+export const ExcursionScreen = ({navigation}) => {
 
    
   
@@ -70,25 +70,9 @@ export const ProductScreen = ({navigation}) => {
         }
     }, [ excursiones])
 
-    const SlideTour=()=>{
-        return(
-
-            <View >
-                    <TouchableOpacity
-                        style={{flexDirection:"row"}}
-                         onPress={()=>(setVisible(!visible))}
-                    >
-                        <Text style={{flex:1,textAlign:"center",color:COLORS.black,fontSize:22,}}>
-                        {visible?"Excursiones en la ciudad":"Tour entre provincias"}
-                        </Text>
-                       <Icons name={visible?"chevron-up-outline":"chevron-down-outline"} size={32} color="black" style={{position:"absolute",right:30}}/> 
-                    </TouchableOpacity>
-            </View>
-
-        )
-    }
+   
     const RenderExcursiones=()=> {
-        if (visible){
+       
  
              return (
                  
@@ -97,7 +81,7 @@ export const ProductScreen = ({navigation}) => {
                             renderItem={ ({ item }: any) => <ProdPoster info={ item } /> }
                             sliderWidth={ windowWidth }
                             itemWidth={ 300 }
-                            inactiveSlideOpacity={0.9}
+                            inactiveSlideOpacity={0.7}
                             
                             // onSnapToItem={ index => getPosterColors( index ) }  : React.SetStateAction<number>
                             onSnapToItem={ (index) => {
@@ -116,137 +100,11 @@ export const ProductScreen = ({navigation}) => {
                        
                         /> 
              )
-         }else{
-             return (
-                <Carousel 
-                data={ provincias }
-                renderItem={ ({ item }: any) => <ProvinciasPoster infoProvincia={ item } /> }
-                sliderWidth={ windowWidth }
-                itemWidth={ 300 }
-                inactiveSlideOpacity={0.9}
-                onSnapToItem={ (index) => {
-                    getPosterColors( index )
-                   
-                    setPlaces([
-                        ...excursiones[index].actividades,
-                    ])
-                    // console.log(index);
-                    
-                }}
-                    /> 
- 
-            ) 
-        }
+      
  
      }
     const RenderPlaces=()=> {
-        if (!visible){
-            return (
-                <Animated.FlatList
-                    alwaysBounceVertical
-                    pagingEnabled
-                    showsHorizontalScrollIndicator={false}
-                    data={provincias}
-                    keyExtractor={item => `${item.id}`}
-                    contentContainerStyle={{
-                        alignItems: 'center',
-                    }}
-                    snapToAlignment="center"
-                    // snapToInterval={Platform.OS === 'ios' ? PLACES_ITEM_SIZE + 28 : PLACES_ITEM_SIZE} //your element width
-                    scrollEventThrottle={16}
-                    decelerationRate={0}
-                    bounces={false}
-                  
-                    renderItem={({ item, index }) => {
-                        return(
-                            <TouchableOpacity
-                                style={{
-
-                                    flexDirection:"row",
-                                    alignItems:"center",
-                                    // flexWrap:"wrap",
-                                    padding:3,
-                                    marginTop:10,
-                                    borderRadius:SIZES.radius,
-                                    backgroundColor:COLORS.lightGray2,
-                                    paddingLeft:5,
-
-                                    width:SIZES.width-20,
-
-                                }}
-                                onPress={ () => navigation.navigate('ProdDetailStack',             
-                                {
-                                    screen: 'ProdDetail',
-                                         params: {
-                                            ...item
-                                    }      
-                                    }
-                          ) }
-                            >
-                                <View style={{
-                                    width:SIZES.width-35,
-                                    backgroundColor:COLORS.transparentgray,
-                                    borderRadius:SIZES.radius
-                                }}>
-                                    <Image
-                                        source={item.foto}
-                                        resizeMode="cover"
-                                        style={{width:140,height:140,borderRadius:SIZES.radius}}
-                                    />
-
-                                    {/*Informacion */}
-                                    <View
-                                        style={{
-                                            position:"absolute",
-                                            top:20,
-                                            left:"35%",
-                                            paddingHorizontal:SIZES.radius,
-                                            paddingVertical:5,
-
-                                        }
-                                        }>
-                                        <Text
-                                            style={
-                                                {
-                                                    color:COLORS.black,
-                                                    fontSize:18
-                                                }
-                                            }>
-                                            {item.name}
-                                        </Text>
-                                        <Text
-                                            style={
-                                                {
-                                                    color:COLORS.black,
-                                                    fontSize:12
-                                                }
-                                            }>
-                                            {item.desde} | {item.hora}
-                                        </Text>
-                                        <Text
-                                            style={
-                                                {
-                                                    color:COLORS.black,
-                                                    fontSize:16
-                                                }
-                                            }>
-                                            {item.categoria}
-                                        </Text>
-                                    </View>
-                                </View>
-
-
-
-                            </TouchableOpacity>
-                        )
-
-
-                    }}
-                />
-            )
-        }else {
-            
-            
+       
             return (
                
                     <Animated.FlatList
@@ -281,9 +139,9 @@ export const ProductScreen = ({navigation}) => {
                                     width:SIZES.width-20,
 
                                 }}
-                                onPress={ () => navigation.navigate('ProdDetailStack',             
+                                onPress={ () => navigation.navigate('ExcursionDetailStack',             
                                 {
-                                    screen: 'ProdDetail',
+                                    screen: 'ExcursionDetail',
                                          params: {
                                             ...item
                                     }      
@@ -309,6 +167,7 @@ export const ProductScreen = ({navigation}) => {
                                             left:"35%",
                                             paddingHorizontal:SIZES.radius,
                                             paddingVertical:5,
+                                            width:250
 
                                         }
                                         }>
@@ -353,7 +212,7 @@ export const ProductScreen = ({navigation}) => {
               
                 
             )
-        }
+        // }
 
     }
     return (
@@ -367,7 +226,7 @@ export const ProductScreen = ({navigation}) => {
                 <View style={{height:440}}>
                     
                 {RenderExcursiones()}
-                        {SlideTour()}
+                        {/* {SlideTour()} */}
                 </View>
                 
             </View>

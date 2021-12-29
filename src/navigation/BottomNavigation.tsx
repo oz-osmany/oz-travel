@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icons from 'react-native-vector-icons/Ionicons';
 
-import { ItinerarioScreen, MapaScreen, OverviewScreen, ProductScreen } from '../screen';
+import { ItinerarioScreen, MapaScreen, TourScreen, ExcursionScreen } from '../screen';
 import {COLORS} from '../assets';
 import { TabNavigatorParamsList } from '../types/types';
 
@@ -15,35 +15,11 @@ export const BottomNavigation = () => {
         screenOptions={({ route }) => ({
              tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
-               /*  if (route.name === 'Overview') {
-                    iconName = focused
-                        ? 'home'
-                        : 'home-outline';
-                } else if (route.name === 'Mapa') {
-                    iconName = focused
-                        ? 'map'
-                        : 'map-outline';
-                }else if (route.name === 'Nearby') {
-                    iconName = focused
-                        ? 'sync-circle'
-                        : 'sync-circle-outline';
-                }else if (route.name === 'Profile') {
-                    iconName = focused
-                        ? 'person'
-                        : 'person-outline';
-                }else if (route.name === 'Trip') {
-                    iconName = focused
-                        ? 'analytics'
-                        : 'analytics-outline';
-                }else if (route.name === 'Explorar') {
-                    iconName = focused
-                        ? 'search'
-                        : 'search-outline';
-                } */
+               
                 switch (route.name) {
-                    case 'OverviewScreen':
-                    //   label = 'Home'
-                      iconName = 'home'
+                    case 'TourScreen':
+                    //   label = 'Terminology'
+                      iconName = 'bus-outline'
                       break
                     case 'MapaScreen':
                     //   label = 'Terminology'
@@ -53,9 +29,9 @@ export const BottomNavigation = () => {
                     //   label = 'Boats'
                       iconName = 'analytics-outline'
                       break
-                    case 'ProductScreen':
+                    case 'ExcursionScreen':
                     //   label = 'Settings'
-                      iconName = 'search-outline'
+                      iconName = 'bicycle-outline'
                       break
                     default:
                       return null
@@ -69,25 +45,21 @@ export const BottomNavigation = () => {
                 backgroundColor: '#263DB4',
                 borderTopColor:'#263DB4',
                 height: 60
-                /*position:"absolute",
-
-                left:15,
-                right:15,
-                height: 60,
-                borderRadius:15*/
+               
             },
             tabBarLabelStyle: {
-                marginBottom:5
+                marginBottom:5,
+                fontSize:11,
+                color:"#e6e6f5"
             }
         }
     )}
         >
-            <Bottom.Screen name="OverviewScreen" component={OverviewScreen} options={{headerShown:false}}/>
-            <Bottom.Screen name="Trip" component={ItinerarioScreen}
+                <Bottom.Screen name="Trip" component={ItinerarioScreen}
                             options={{
                                 headerShown:true,
                                 //title:"YOUR ROUTE",
-                                 headerTitleStyle:{
+                                headerTitleStyle:{
                                     color:COLORS.lightGray3,
                                     position:"absolute",
                                     left:120,
@@ -95,11 +67,12 @@ export const BottomNavigation = () => {
                                 headerStyle:{
                                     backgroundColor:COLORS.blue
                                 }
-
-
+                                
+                                
                             }}/>
                 <Bottom.Screen name="MapaScreen" component={MapaScreen}/>
-                <Bottom.Screen name="ProductScreen" component={ProductScreen} options={{headerShown:false}}/>
+                <Bottom.Screen name="ExcursionScreen" component={ExcursionScreen} options={{headerShown:false,title:"Excurciones"}}/>
+                <Bottom.Screen name="TourScreen" component={TourScreen} options={{headerShown:false}}/> 
         </Bottom.Navigator>
     )
 }

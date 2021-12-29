@@ -1,6 +1,6 @@
 Poner toda la informacion correcta en la BD, texto, fotos etc
 Corregir espacio de texto para el Flatlist
-Poner boton de reserva en los detalles de los productos
+Poner boton de reserva en los detalles de los productos.   Hecho
 Corregir lo que sale en el fondo de Itinerario.
 Cambiar las fechas del encabezado en Itinerario
 Poner el mapa

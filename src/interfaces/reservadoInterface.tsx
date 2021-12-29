@@ -74,5 +74,6 @@ export interface DatosProvincias{
     hora:string;
     direccion:string;
     descripcion:string,
+    precio:string;
     
 }

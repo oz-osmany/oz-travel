@@ -8,16 +8,17 @@ import Icons from 'react-native-vector-icons/Ionicons';
 import { COLORS, icons, SIZES } from '../assets'
 import { ProdStackParams } from '../types/types'
 
+
 export interface ProdDetailProps {
-    navigation: StackNavigationProp<ProdStackParams, 'ProdDetail'>
-    route: RouteProp<ProdStackParams, 'ProdDetail'>
+    navigation: StackNavigationProp<ProdStackParams, 'ExcursionDetail'>
+    route: RouteProp<ProdStackParams, 'ExcursionDetail'>
   }
-export const ProdDetailScreen = ({
+export const ExcursionDetailScreen = ({
     navigation,
     route,
   }:ProdDetailProps) => {
     const {
-        params: {categoria,foto,name,hora,desde,hasta,tipo_transp,direccion,descripcion },
+        params: {categoria,foto,name,hora,desde,hasta,tipo_transp,direccion,descripcion,idioma,guia },
       } = route  
       function renderHeaderSection(){
        
@@ -71,18 +72,29 @@ export const ProdDetailScreen = ({
             <View style={styles.container}>
                 <View style={styles.caja_info}>
                     
-                    <Icons name="time-outline" size={24} color="white" style={styles.iconos}/> 
-                    <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightgreen}}>DISPONIBLE:</Text>
-                    <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightblue}}>{hora}</Text>
-                </View>
-                <View style={styles.caja_info}>
+                        <TouchableOpacity style={styles.bReservar}>
+                            <Text style={{fontSize:20}}>
+                                Reservar
+                                </Text>
+                        </TouchableOpacity>
+                    
+                    {/* Hora de la experiencia */}
+                    <View style={{flexDirection:"row"}}>
+                        <Icons name="time-outline" size={24} color="white" style={styles.iconos}/>
+                        <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightgreen}}>DISPONIBLE:</Text>
+                        <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightblue}}>{hora}</Text>
+                    </View>
+                    {/* Direccion de la experiencia */}
+                <View style={{flexDirection:"row"}}>
                     <Icons name="location-outline" size={24} color="white" style={styles.iconos}/> 
-                    <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightblue}}>{direccion}</Text>
+                    <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightblue,fontSize:15}}>{direccion}</Text>
                 </View>
-                {/* <View style={styles.caja_info}>
-                    <Icons name="call-outline" size={24} color="white" style={styles.iconos}/> 
-                    <Text style={{marginTop:15,marginLeft:25,color:COLORS.lightblue}}>{telefono}</Text>
-                </View> */}
+                <View style={{flexDirection:"column"}}>
+                    <Text style={{marginLeft:40,color:COLORS.lightblue, fontSize:15}}>. {guia}</Text>
+                    <Text style={{marginLeft:40,color:COLORS.lightblue, fontSize:15}}>. Disponible en {idioma}</Text>
+                    <Text style={{marginLeft:40,color:COLORS.lightblue, fontSize:15}}>. Transporte: {tipo_transp}</Text>
+                </View>
+                </View >
 
                 <View>
                     <Text style={{marginTop:15,textAlign:"center",color:COLORS.white,fontSize:24}}>Descripción del evento</Text>
@@ -172,7 +184,7 @@ const styles=StyleSheet.create({
   },
   caja_info:{
       //flex:1,
-      flexDirection:"row"
+      flexDirection:"column"
   },
   container:{
       marginRight:10,
@@ -188,7 +200,19 @@ const styles=StyleSheet.create({
       marginRight: "auto",
       marginTop: 10,
       borderRadius:20
+  },
+  bReservar:{
+   
+    backgroundColor:"red",
+    height:35,
+    width:250,
+    justifyContent:"center",
+    alignItems:"center",
+    marginRight:"auto",
+    marginLeft:"auto",
+    marginTop:15,
+    borderRadius:20,
+    
   }
-
 
 })

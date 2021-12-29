@@ -1,9 +1,9 @@
-import { ProductScreen } from './ProductScreen';
+import { ExcursionScreen } from './ExcursionScreen';
 import {ProfileScreen} from './ProfileScreen';
-import { OverviewScreen } from './OverviewScreen';
+import { TourScreen } from './TourScreen';
 import { ItinerarioScreen } from './ItinerarioScreen';
 import { MapaScreen } from './MapaScreen';
 
 export {
-    ProductScreen,ProfileScreen,OverviewScreen,ItinerarioScreen,MapaScreen
+    ExcursionScreen,ProfileScreen,TourScreen,ItinerarioScreen,MapaScreen
 }

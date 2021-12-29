@@ -1,9 +1,9 @@
 import { NavigatorScreenParams } from '@react-navigation/native'
-import { DatosUser, DatosExcursiones, Activity } from '../interfaces/reservadoInterface';
+import { DatosUser, DatosExcursiones, Activity, DatosProvincias } from '../interfaces/reservadoInterface';
 import { MapaScreen } from '../screen/MapaScreen';
 import { ItiDetailScreen } from '../screen/ItiDetailScreen';
-import { OverviewScreen } from '../screen/OverviewScreen';
-import { ProductScreen } from '../screen/ProductScreen';
+import { TourScreen } from '../screen/TourScreen';
+import { ExcursionScreen } from '../screen/ExcursionScreen';
 
 
 
@@ -15,7 +15,11 @@ export type ItinerStackParams = {
  
 }
 export type ProdStackParams = {
-  ProdDetail: Activity
+  ExcursionDetail: Activity
+ 
+}
+export type TourStackParams = {
+  TourDetail: DatosProvincias
  
 }
 
@@ -27,16 +31,17 @@ export type TopNavigatorParamsList = {
 export type RootNavigatorParamsList = {
   Main: NavigatorScreenParams<TopNavigatorParamsList>
   ItinerDetailStack: NavigatorScreenParams<ItinerStackParams>
-  ProdDetailStack: NavigatorScreenParams<ProdStackParams>
+  ExcursionDetailStack: NavigatorScreenParams<ProdStackParams>
+  TourDetailStack:NavigatorScreenParams<ProdStackParams>
 }
 
 
 
 
 export type TabNavigatorParamsList = {
-  OverviewScreen:undefined;
+  TourScreen:undefined;
   MapaScreen:undefined;
-  ProductScreen:undefined;
+  ExcursionScreen:undefined;
   Trip:undefined;
   ItinerDetailStack:NavigatorScreenParams<ItinerStackParams>
     

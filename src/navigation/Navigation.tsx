@@ -6,14 +6,16 @@ import {
     ProdStackParams,
     RootNavigatorParamsList,
     TopNavigatorParamsList,
+    TourStackParams,
   } from '../types/types'
 
-import { ProfileScreen,ProductScreen,ItinerarioScreen } from '../screen';
+import { ProfileScreen,ExcursionScreen,ItinerarioScreen } from '../screen';
 import { BottomNavigation } from './BottomNavigation';
 import { ItiDetailScreen } from '../screen/ItiDetailScreen';
 import { DatosUser } from '../interfaces/reservadoInterface';
-import { ProdDetailScreen } from '../screen/ProdDetailScreen';
+import { ExcursionDetailScreen } from '../screen/ExcursionDetailScreen';
 import { InicioScreen } from '../screen/InicioScreen';
+import {TourDetailScreen} from '../screen/TourDetailScreen';
  //import { RootStackParams } from '../types/types';
 
  
@@ -21,26 +23,8 @@ import { InicioScreen } from '../screen/InicioScreen';
  const MainStack = createStackNavigator<TopNavigatorParamsList>()
  const ItinerStack = createStackNavigator<ItinerStackParams>()
  const ProdStack = createStackNavigator<ProdStackParams>()
+ const TourStack = createStackNavigator<TourStackParams>()
 
-/* const Stack=createStackNavigator<RootStackParams>();
-export const Navigation = () => {
-    return (
-       
-            <Stack.Navigator 
-                screenOptions={{
-                    
-                    title:null,
-                    headerShown:false,
-            }}
-            >
-                <Stack.Screen name="BottomNavigation" component={BottomNavigation}/>
-                <Stack.Screen name="ProfileScreen" component={ProfileScreen}/>
-                
-       
-            </Stack.Navigator>
-     
-    )
-} */
 
 const ItiDetailScreenStack = () => {
     const { Navigator, Screen } = ItinerStack
@@ -55,7 +39,7 @@ const ItiDetailScreenStack = () => {
       </Navigator>
     )
   }
-  const ProDetailScreenStack = () => {
+  const ExcursionDetailScreenStack = () => {
     const { Navigator, Screen } = ProdStack
   
     return (
@@ -63,7 +47,20 @@ const ItiDetailScreenStack = () => {
         title:null,
         headerShown:false,
         }}>
-        <Screen name="ProdDetail" component={ProdDetailScreen} />
+        <Screen name="ExcursionDetail" component={ExcursionDetailScreen} />
+        
+      </Navigator>
+    )
+  }
+  const TourDetailScreenStack = () => {
+    const { Navigator, Screen } = TourStack
+  
+    return (
+      <Navigator screenOptions={{
+        title:null,
+        headerShown:false,
+        }}>
+        <Screen name="TourDetail" component={TourDetailScreen} />
         
       </Navigator>
     )
@@ -100,7 +97,8 @@ const RootNavigator: React.FC = () => {
       >
         <Screen name="Main" component={MainNavigator} />
         <Screen name="ItinerDetailStack" component={ItiDetailScreenStack} />
-        <Screen name="ProdDetailStack" component={ProDetailScreenStack} />
+        <Screen name="ExcursionDetailStack" component={ExcursionDetailScreenStack} />
+        <Screen name="TourDetailStack" component={TourDetailScreenStack} />
       </Navigator>
     )
   }
