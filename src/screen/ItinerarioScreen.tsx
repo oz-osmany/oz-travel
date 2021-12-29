@@ -15,17 +15,7 @@ export const ItinerarioScreen = () => {
 
 
     const {reserva}=useItinerario();
-    /*  const [datos, setDatos] = useState<Props>({
-         reserva:[]
-         });
-    const loadData= ()=>{    
-    setDatos({
-        reserva:reservados
-    }) 
-    }
-    useEffect(()=>{
-        loadData()
-    },[]);  */
+   
     const renderImageB=():JSX.Element=>{
         return(
             <ImageBackground

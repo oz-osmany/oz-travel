@@ -21,10 +21,7 @@ export const BottomNavigation = () => {
                     //   label = 'Terminology'
                       iconName = 'bus-outline'
                       break
-                    case 'MapaScreen':
-                    //   label = 'Terminology'
-                      iconName = 'map-outline'
-                      break
+                    
                     case 'Trip':
                     //   label = 'Boats'
                       iconName = 'analytics-outline'
@@ -44,7 +41,7 @@ export const BottomNavigation = () => {
             tabBarStyle :{
                 backgroundColor: '#263DB4',
                 borderTopColor:'#263DB4',
-                height: 60
+                height: 50
                
             },
             tabBarLabelStyle: {
@@ -58,7 +55,7 @@ export const BottomNavigation = () => {
                 <Bottom.Screen name="Trip" component={ItinerarioScreen}
                             options={{
                                 headerShown:true,
-                                //title:"YOUR ROUTE",
+                                title:"Itinerario",
                                 headerTitleStyle:{
                                     color:COLORS.lightGray3,
                                     position:"absolute",
@@ -70,7 +67,6 @@ export const BottomNavigation = () => {
                                 
                                 
                             }}/>
-                <Bottom.Screen name="MapaScreen" component={MapaScreen}/>
                 <Bottom.Screen name="ExcursionScreen" component={ExcursionScreen} options={{headerShown:false,title:"Excurciones"}}/>
                 <Bottom.Screen name="TourScreen" component={TourScreen} options={{headerShown:false}}/> 
         </Bottom.Navigator>

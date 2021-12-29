@@ -1,6 +1,5 @@
 import { NavigatorScreenParams } from '@react-navigation/native'
 import { DatosUser, DatosExcursiones, Activity, DatosProvincias } from '../interfaces/reservadoInterface';
-import { MapaScreen } from '../screen/MapaScreen';
 import { ItiDetailScreen } from '../screen/ItiDetailScreen';
 import { TourScreen } from '../screen/TourScreen';
 import { ExcursionScreen } from '../screen/ExcursionScreen';
@@ -40,7 +39,6 @@ export type RootNavigatorParamsList = {
 
 export type TabNavigatorParamsList = {
   TourScreen:undefined;
-  MapaScreen:undefined;
   ExcursionScreen:undefined;
   Trip:undefined;
   ItinerDetailStack:NavigatorScreenParams<ItinerStackParams>
