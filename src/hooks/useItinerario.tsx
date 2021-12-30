@@ -8,43 +8,24 @@ import { excursiones } from '../API/api_excursiones';
 interface ItinerarioState {
     reserva:DatosUser[];
     excursion:DatosExcursiones[];
-   
-    
 }
 export const useItinerario = () => {
     const [ ItinerState, setItinerState ] = useState<ItinerarioState>({
         reserva:[],
         excursion:[],
-        
-       
-
     })
     const getItiner = () => {
-        
-     
-
          setItinerState({
             reserva:reservados,
-            excursion:excursiones
-            
-            
+            excursion:excursiones            
         }) 
-        
-        
-     
-     
-      
     }
-
    
     useEffect(() => {
-        // now_playing
         getItiner();
 
     }, [])
-
     
-
     return {
         ...ItinerState      
     }

@@ -105,7 +105,7 @@ export const ProvinciasPoster = ({ infoProvincia, height =windoHeight , width = 
                                         infoProvincia.paradas.map(parada=>{
                                             return(
 
-                                            <View style={{left:25,top:2}}>
+                                            <View style={{left:25,top:2}} key={parada}>
                                                 <Text style={{color:"white"}}>
                                                     {parada}
                                                 </Text>

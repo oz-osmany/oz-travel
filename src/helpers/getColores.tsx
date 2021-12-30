@@ -4,7 +4,6 @@ import ImageColors from 'react-native-image-colors';
 
 export const getImageColors = async( uri: string ) => {
     
-    console.log(uri);
     
     const colors = await ImageColors.getColors(uri, {});
 

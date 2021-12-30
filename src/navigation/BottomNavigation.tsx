@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icons from 'react-native-vector-icons/Ionicons';
 
-import { ItinerarioScreen, MapaScreen, TourScreen, ExcursionScreen } from '../screen';
+import { ItinerarioScreen, TourScreen, ExcursionScreen } from '../screen';
 import {COLORS} from '../assets';
 import { TabNavigatorParamsList } from '../types/types';
 

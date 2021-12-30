@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState,useRef } from 'react'
-import { View, Text, ScrollView, Dimensions, TouchableOpacityBase, TouchableOpacity, FlatList, Animated, Platform,Image } from 'react-native';
+import { View, Text, Dimensions, TouchableOpacity, Animated, Platform,Image } from 'react-native';
 
 import { GradientBackground } from '../components/GradientBackground';
 import { GradientContext } from '../context/GradientContext';
@@ -37,34 +37,16 @@ export const ExcursionScreen = ({navigation}) => {
    
     const getPosterColors = async( index: number ) => {
         
-        // console.log(index);
+        // 
         const uri =excursiones[index].imagen;//excursion[index] ;
-        const colors = await ImageColors.getColors(uri, {});
         
-        // console.log(colors);
-        let primary;
-        let secondary;
-    
-    if (colors.platform === "android") {
-        // Access android properties
-        primary = colors.dominant;
-        secondary = colors.average;
-        
-    } else {
-        // Access iOS properties
-        // e.g.
-        /* primary = colors.primar;
-        secondary = colors.secondary; */
-    }
-       // console.log(uri);
-        
-        // const [ primary = 'green', secondary = 'orange' ] = await getImageColors( uri );
+         const [ primary = 'green', secondary = 'orange' ] = await getImageColors( uri );
          setMainColors({ primary, secondary })   
-       
-        
     }
 
     useEffect(() => {
+        
+        
         if( excursiones.length > 0 ) {
             getPosterColors(0)
         }
@@ -72,8 +54,6 @@ export const ExcursionScreen = ({navigation}) => {
 
    
     const RenderExcursiones=()=> {
-       
- 
              return (
                  
                      <Carousel 
@@ -81,10 +61,10 @@ export const ExcursionScreen = ({navigation}) => {
                             renderItem={ ({ item }: any) => <ProdPoster info={ item } /> }
                             sliderWidth={ windowWidth }
                             itemWidth={ 300 }
-                            inactiveSlideOpacity={0.7}
+                            inactiveSlideOpacity={0.9}
                             
                             // onSnapToItem={ index => getPosterColors( index ) }  : React.SetStateAction<number>
-                            onSnapToItem={ (index) => {
+                            onSnapToItem={ index => {
                                 /* setActiveIndex(index);
                                  if ( index === 2 ) {
                                     isVisible.current = true;

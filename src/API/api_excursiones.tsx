@@ -94,12 +94,12 @@ export const excursiones:Array<DatosExcursiones>=[
     {
         id:2,
         titulo:"Camaguey",
-        imagen:require("../assets/images/buceo.jpg"),
+        imagen:require("../assets/images/excursion1.jpg"),
         actividades:[
             {
                 id:1,
-            name:"Caminar por Camaguey",
-            foto:require("../assets/images/excursion-bici.jpg"),
+            name:"Paseo en lancha",
+            foto:require("../assets/images/excursion1.jpg"),
             guia:"Experiencia con guía",
             idioma:"ingles",
             tipo_transp:"Bicicleta",
@@ -114,8 +114,8 @@ export const excursiones:Array<DatosExcursiones>=[
         },
         {
             id:2,
-            name:"Andar la Habana en bici",
-            foto:require("../assets/images/excursion-bici.jpg"),
+            name:"Visita al lago",
+            foto:require("../assets/images/excursion5.jpg"),
             guia:"Experiencia con guía",
             idioma:"ingles",
             tipo_transp:"Bicicleta",
@@ -185,7 +185,7 @@ export const excursiones:Array<DatosExcursiones>=[
     {
         id:3,
         titulo:"Cienfuegos",
-        imagen:require("../assets/images/excursion3.jpg"),
+        imagen:require("../assets/images/senderismo.jpg"),
         actividades:[
             {
                 id:1,
@@ -369,7 +369,7 @@ export const excursiones:Array<DatosExcursiones>=[
     {
         id:5,
         titulo:"Matanzas",
-        imagen:require("../assets/images/salsa.jpg"),
+        imagen:require("../assets/images/varadero.jpg"),
         actividades:[
             {
                 id:1,
